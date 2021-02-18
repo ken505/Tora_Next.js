@@ -55,8 +55,10 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        // id: fileName.replace(/\.md$/, ""),
-        id: ["rezero", "rem"],
+        id: fileName.replace(/\.md$/, ""),
+
+        // chatch-all Routes Example by Torahuck
+        // id: ["rezero", "rem"],
       },
     };
   });

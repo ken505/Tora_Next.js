@@ -8,21 +8,6 @@ import { getSortedPostsData } from "../lib/posts";
 // ts 型定義をインポート
 import { GetStaticProps } from "next";
 
-// js コード
-// // SSG
-// export async function getStaticProps() {
-
-//   // SSR
-//   // export async function getServerSideProps() {
-
-//   const allPostsData = getSortedPostsData();
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// }
-
 // ts コード
 export default function Home({
   allPostsData,
@@ -43,41 +28,7 @@ export default function Home({
       </Head>
       <section className={utilStyles.headingMd}>
         <p>I appreciate you coming my room ☺️</p>
-        <p>
-          I'm learning by filling this page with what I want to do.
-          <br />{" "}
-          <a href="https://nextjs.org/learn/excel/typescript/nextjs-types">
-            My next task - Rewriting to typescript
-          </a>
-          <ul>
-            <li>components/date.js</li>
-            <li>components/layout.js</li>
-            <li>lib/posts.js:</li>
-            <li>pages/posts/[id].js</li>
-            <li>pages/index.js ☑️</li>
-            <li>pages/_app.js</li>
-            <li>pages/api/hello.js</li>
-          </ul>
-        </p>
       </section>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog FileSystem</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
-
 
       {/* Blog section の copy に外部 API リンクを実装。 */}
       {/* CSS スタイルは共通のまま */}
@@ -103,6 +54,7 @@ export default function Home({
     </Layout>
   );
 }
+// allPostData をどこで受け取っているかわからない。
 
 // ts コード
 export const getStaticProps: GetStaticProps = async () => {
